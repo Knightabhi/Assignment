@@ -62,7 +62,7 @@ const ShopCart = ({addToCart }) => {
   return (
     <>
       {shopItems.map((shopItems, index) => {
-        console.log(shopItems);
+       // console.log(shopItems);
         return (
           <div className='box'>
             <div className='product mtop'>

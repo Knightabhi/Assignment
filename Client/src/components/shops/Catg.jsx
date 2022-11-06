@@ -11,7 +11,7 @@ const Catg = () => {
 
   const fetchcat = async () => {
     const { data } = await api.fetchCategories();
-    console.log(data);
+   // console.log(data);
     setdata(data);
   };
 
@@ -25,7 +25,7 @@ const Catg = () => {
     if(index==-1)
     {
       const products = await api.fetchItems(1);
-      console.log(products.data);
+      //console.log(products.data);
       setShopItems(products.data.data);
       return;
     }
@@ -42,7 +42,7 @@ const Catg = () => {
       }
       return 0;
     })
-    console.log(products);
+   // console.log(products);
 
     setShopItems(products);
   }

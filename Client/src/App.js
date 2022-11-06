@@ -25,7 +25,7 @@ function App() {
 
 
   async function getProductId(id){
-    console.log(id)
+    //console.log(id)
     const x = await api.fetchItemId(id)
     return x.data
   }
@@ -71,7 +71,7 @@ function App() {
   }
 
   const addToCart = async(product) => {
-    console.log(product);
+   // console.log(product);
     const productExit = CartItem.find((item) => item.id === product.id)
     if (productExit) {
       setCartItem(CartItem.map((item) => (item.id === product.id ? { ...productExit, qty: productExit.qty + 1 } : item)))
