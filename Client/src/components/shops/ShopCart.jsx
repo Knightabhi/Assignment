@@ -44,17 +44,25 @@
 
 //export default ShopCart
 
-import React, { useState } from "react"
+import React, { useState,useContext,useEffect } from "react"
+import { ProductContext } from "../../context/ProductContext";
 
-const ShopCart = ({ shopItems, addToCart }) => {
+
+const ShopCart = ({addToCart }) => {
   const [count, setCount] = useState(0)
+  const {shopItems} = useContext(ProductContext);
+  const [items,setItems] = useState([]);
   const increment = () => {
     setCount(count + 1)
   }
+  useEffect(()=>{
+    setItems({shopItems});
+  },[{shopItems}])
 
   return (
     <>
       {shopItems.map((shopItems, index) => {
+        console.log(shopItems);
         return (
           <div className='box'>
             <div className='product mtop'>

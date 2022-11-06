@@ -1,12 +1,18 @@
-import React,{useContext} from "react"
+import React,{useContext,useState,useEffect} from "react"
 import Catg from "./Catg"
 import ShopCart from "./ShopCart"
 import "./style.css"
 import { ProductContext } from "../../context/ProductContext";
 
 const Shop = ({ addToCart}) => {
-  const {shopItems} = useContext(ProductContext);
-  console.log(shopItems);
+  // const {shopItems} = useContext(ProductContext);
+
+  // const [data,setData] = useState([]);
+
+  // useEffect(()=>{
+  //   setData(shopItems)
+  // })
+  // console.log(shopItems);
   return (
     <>
       <section className='shop background'>
@@ -20,7 +26,7 @@ const Shop = ({ addToCart}) => {
               </div>
             </div>
             <div className='product-content  grid1'>
-              <ShopCart addToCart={addToCart} shopItems={shopItems} />
+              <ShopCart addToCart={addToCart} />
             </div>
           </div>
         </div>
