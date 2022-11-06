@@ -8,7 +8,6 @@ const Catg = () => {
   const {setShopItems} = useContext(ProductContext);
   const [data, setdata] = React.useState([]);
 
-  console.log(setShopItems);
 
   const fetchcat = async () => {
     const { data } = await api.fetchCategories();
@@ -16,22 +15,26 @@ const Catg = () => {
     setdata(data);
   };
 
-  async function fetchproduct(id){
-    const products = await api.fetchItemId(id);
-    console.log(products.data)
-    return products.data
+  const fetchproduct= async(id)=>{
+    const x = await api.fetchItemId(id)
+
+    return x.data;
   }
 
   const changeProduct = async(index)=>{
     const x =data[index]._id;
     const pro = await api.fetchCategoryId(x);
     const products = []
-    pro.data.map((item)=>{
-      const x =fetchproduct(item);
-      products.push(x);
+    pro.data.map(async(item)=>{
+      try{
+        products.push(await fetchproduct(item));
+      }
+      catch(error)
+      {
+        console.log(error);
+      }
       return 0;
     })
-
     console.log(products);
 
     setShopItems(products);
@@ -54,9 +57,6 @@ const Catg = () => {
             </div>
           )
         })}
-        <div className='box box2'>
-          <button>View All Brands</button>
-        </div>
       </div>
     </>
   )

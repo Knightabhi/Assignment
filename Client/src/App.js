@@ -6,6 +6,7 @@ import Pages from "./pages/Pages"
 import Login from "./pages/Login"
 import Cart from "./common/Cart/Cart"
 import { ProductContext } from "./context/ProductContext";
+
 import Footer from "./common/footer/Footer"
 import * as api from "./api";
 

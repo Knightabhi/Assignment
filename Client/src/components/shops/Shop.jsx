@@ -1,9 +1,12 @@
-import React from "react"
+import React,{useContext} from "react"
 import Catg from "./Catg"
 import ShopCart from "./ShopCart"
 import "./style.css"
+import { ProductContext } from "../../context/ProductContext";
 
-const Shop = ({ addToCart, shopItems }) => {
+const Shop = ({ addToCart}) => {
+  const {shopItems} = useContext(ProductContext);
+  console.log(shopItems);
   return (
     <>
       <section className='shop background'>
@@ -13,11 +16,7 @@ const Shop = ({ addToCart, shopItems }) => {
           <div className='contentWidth'>
             <div className='heading d_flex'>
               <div className='heading-left row  f_flex'>
-                <h2>Mobile Phones</h2>
-              </div>
-              <div className='heading-right row '>
-                <span>View all</span>
-                <i className='fa-solid fa-caret-right'></i>
+                <h2>Eatables</h2>
               </div>
             </div>
             <div className='product-content  grid1'>
