@@ -22,6 +22,13 @@ const Catg = () => {
   }
 
   const changeProduct = async(index)=>{
+    if(index==-1)
+    {
+      const products = await api.fetchItems(1);
+      console.log(products.data);
+      setShopItems(products.data.data);
+      return;
+    }
     const x =data[index]._id;
     const pro = await api.fetchCategoryId(x);
     const products = []
@@ -49,6 +56,10 @@ const Catg = () => {
         <div className='chead d_flex'>
           <h1>Category </h1>
         </div>
+        <div className='box f_flex' onClick={()=>{changeProduct(-1)}}>
+              <img src="./images/category/cat-1.png" alt='' />
+              <span>All</span>
+            </div>
         {data.map((value, index) => {
           return (
             <div className='box f_flex' key={index} onClick={()=>{changeProduct(index)}}>

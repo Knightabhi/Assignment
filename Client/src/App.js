@@ -19,15 +19,15 @@ function App() {
 
   const getProducts = async (page) => {
     const products = await api.fetchItems(page);
-    console.log(products.data);
+   // console.log(products.data);
     setShopItems(products.data.data);
   }
 
 
   async function getProductId(id){
-    const products = await api.fetchItemId(id);
-    console.log(products.data)
-    return products.data
+    console.log(id)
+    const x = await api.fetchItemId(id)
+    return x.data
   }
 
 
@@ -38,7 +38,7 @@ function App() {
       setUser({name:data.name,email:data.email});
       const cartData =[];
       cartData.push(data.cart.map((item) => {
-        const product = getProductId(item.productId);
+        const product = getProductId(item.Id);
         return product;
       }));
       setCartItem(cartData);
@@ -57,8 +57,17 @@ function App() {
   }, []);
 
   function changeData(cart){
-      const userCart = [...cart.id,...cart.qty];
-      return userCart;
+      const x = [];
+      const pro = {
+        id: "",
+        qty: ""
+      }
+      cart.map(async(val)=>{
+        pro.id = val.id;
+        pro.qty = val.qty;
+        await x.push(pro);
+      })
+      return x;
   }
 
   const addToCart = async(product) => {
