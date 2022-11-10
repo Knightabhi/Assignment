@@ -108,9 +108,11 @@ function App() {
           <Route path='/login'>
             <Login/>
           </Route>
+          {user&&
           <Route path='/cart' exact>
             <Cart CartItem={CartItem} addToCart={addToCart} decreaseQty={decreaseQty} />
           </Route>
+}
         </Switch>
         </ProductContext.Provider>
         <Footer />
