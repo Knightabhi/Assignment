@@ -43,7 +43,7 @@ export const getProductsbyId = async (req, res) => {
 
 export const saveCart = async (req, res) => {
   const { cart } = req.body;
-  console.log(cart);
+ // console.log(cart);
     try {
         const user = await User.findByIdAndUpdate(
         req.userId,

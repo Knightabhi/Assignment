@@ -3,16 +3,14 @@ import { useHistory } from "react-router-dom";
 import {
   FormGroup,
   Label,
-  Container,
-  Row,
   Card,
-  CardHeader,CardFooter,CardBody
+   CardBody
 } from "reactstrap";
 import { Formik, Form } from "formik";
 import { Input, Submit } from "formstrap";
 import * as api from "../api";
 
-const RegisterForm = ({ toggle }) => {
+const RegisterForm =()=> {
   // const [showPassword, setShowPassword] = useState(false);
   // const handleShowPassword = () => setShowPassword(!showPassword);
   const history = useHistory();
@@ -56,7 +54,6 @@ const RegisterForm = ({ toggle }) => {
     setSubmitting(false);
     // setUser(newUser.data.userData);
     history.push("/");
-    toggle();
   };
 
   return (
@@ -102,7 +99,7 @@ const RegisterForm = ({ toggle }) => {
   );
 };
 
-const LoginForm = ({ toggle }) => {
+const LoginForm = () => {
   // const [showPassword, setShowPassword] = useState(false);
   // const handleShowPassword = () => setShowPassword(!showPassword);
 const history = useHistory();
@@ -131,7 +128,6 @@ const history = useHistory();
     setSubmitting(false);
     //setUser(newUser.data.userData);
     history.push("/");
-    toggle();
   };
 
   return (
@@ -174,7 +170,7 @@ const Login = () => {
 
   useEffect(() => {
     getUser();
-  }, []);
+  }, );
   const switchMode = () => setIsLogin(!isLogin);
 
   return (

@@ -62,10 +62,10 @@ function App() {
         id: "",
         qty: ""
       }
-      cart.map(async(val)=>{
+      cart.map((val)=>{
         pro.id = val.id;
         pro.qty = val.qty;
-        await x.push(pro);
+        x.push(pro);
       })
       return x;
   }
