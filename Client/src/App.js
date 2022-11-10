@@ -57,15 +57,15 @@ function App() {
   }, []);
 
   function changeData(cart){
-      const x = [];
       const pro = {
         id: "",
         qty: ""
       }
-      cart.map((val)=>{
+      const x = cart.map((val)=>{
         pro.id = val.id;
         pro.qty = val.qty;
-        x.push(pro);
+        return pro;
+
       })
       return x;
   }
